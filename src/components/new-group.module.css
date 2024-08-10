@@ -1,0 +1,65 @@
+.newGrp {
+    cursor: pointer;
+    background-color: hsla(249, 100%, 27%, 1);
+    color: white;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 3em;
+    font-weight: 500;
+    border: 0;
+}
+
+.popup {
+    height: 30vh;
+    width: 35vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.popup > div {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.popup > div > :first-child {
+    margin-right: 5px;
+}
+
+.grpName {
+    flex: 1;
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 0.8em;
+    border: 2px solid hsla(0, 0%, 80%, 1);
+    border-radius: 20px;
+}
+
+.grpName::placeholder {
+    color: hsla(0, 0%, 59%, 1);
+}
+
+.themeSelector {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.createGrpBtn {
+    align-self: flex-end;
+    margin-right: 20px;
+    font-size: 0.9em;
+    background: hsla(227, 100%, 27%, 1);
+    color: white;
+    width: 30%;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 0;
+}
