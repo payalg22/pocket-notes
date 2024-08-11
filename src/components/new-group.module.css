@@ -50,6 +50,11 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.themeSelector:hover {
+    border: 2px solid black;
 }
 
 .createGrpBtn {
@@ -62,4 +67,11 @@
     border: 0;
     border-radius: 10px;
     padding: 5px 0;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-weight: 400;
+    font-size: 0.7em;
 }

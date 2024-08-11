@@ -1,7 +1,7 @@
 import Popup from "reactjs-popup";
 import styles from "./new-group.module.css";
 import groupThemes from "../data/groupThemes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import createLogo from "../utils/createLogo";
 
 export default function NewGroup({ createNewGrp }) {
@@ -10,22 +10,23 @@ export default function NewGroup({ createNewGrp }) {
     name: "",
     theme: "",
   });
+  const [isError, setIsError] = useState(false);
 
-  const handleThemeLogo = async (selectedTheme) => {
-    let grpLogo = await createLogo(newGrp.name);
+  const handleThemeLogo = async (e, selectedTheme) => {
+    console.log(e);
+    let grpLogo = await createLogo(newGrp?.name);
     setNewGrp({ ...newGrp, logo: grpLogo, theme: selectedTheme });
   };
 
-  const handleCreateGrp = () => {
-    createNewGrp(newGrp);
-    close();
-  };
+  useEffect(() => {
+    setIsError(false);
+  }, [newGrp]);
 
   return (
     <Popup
       trigger={<button className={styles.newGrp}>+</button>}
       modal
-      overlayStyle={{ background: "hsla(0, 0%, 0%, 0.5)" }}
+      overlayStyle={{ background: "hsla(0, 0%, 18%, 0.75)" }}
     >
       {(close) => (
         <div className={styles.popup}>
@@ -39,7 +40,7 @@ export default function NewGroup({ createNewGrp }) {
               placeholder="Enter group name"
               className={styles.grpName}
               id="grpName"
-              value={newGrp.name}
+              value={newGrp?.name}
               onChange={(e) => setNewGrp({ ...newGrp, name: e.target.value })}
             />
           </div>
@@ -50,19 +51,33 @@ export default function NewGroup({ createNewGrp }) {
                 <div
                   key={index}
                   className={styles.themeSelector}
-                  style={{ backgroundColor: theme }}
-                  onClick={() => {
-                    handleThemeLogo(theme);
+                  style={{
+                    backgroundColor: theme,
+                    border:
+                      newGrp?.theme == theme && "2px solid rgb(113, 250, 113)",
+                  }}
+                  onClick={(e) => {
+                    handleThemeLogo(e, theme);
                   }}
                 ></div>
               );
             })}
           </div>
+          {isError && (
+            <div>
+              <p className={styles.error}>Please enter name and slect color</p>
+            </div>
+          )}
           <button
             className={styles.createGrpBtn}
             onClick={() => {
-              createNewGrp(newGrp);
-              close();
+              if (!newGrp?.name || !newGrp?.logo) {
+                setIsError(true);
+              } else {
+                createNewGrp(newGrp);
+                close(); //Close modal
+                setNewGrp(null); //Reset values
+              }
             }}
           >
             Create

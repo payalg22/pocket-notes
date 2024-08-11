@@ -1,0 +1,19 @@
+.grpContainer {
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    font-weight: 500;
+    font-size: 1.25em;
+    align-items: center;
+}
+
+.grpLogo {
+    color: white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styles from "./group-list.module.css";
 import AppContext from "../context/AppContext";
 import NewGroup from "./NewGroup";
+import GroupName from "./GroupName";
 
 export default function GroupList() {
   const { groups, setGroups } = useContext(AppContext);
@@ -16,21 +17,11 @@ export default function GroupList() {
         <h1>Pocket Notes</h1>
       </div>
       {groups.map((grp, index) => {
-        return (
-          <div className={styles.grpContainer} key={index}>
-            <div
-              className={styles.grpLogo}
-              style={{ backgroundColor: grp.theme }}
-            >
-              {grp.logo}
-            </div>
-            <p className={styles.grpName}>{grp.name}</p>
-          </div>
-        );
+        return <GroupName key={index} grp={grp} />;
       })}
-        <div className={styles.newGrp}>
-            <NewGroup createNewGrp = {handleNewGroup} />
-        </div>
+      <div className={styles.newGrp}>
+        <NewGroup createNewGrp={handleNewGroup} />
+      </div>
     </div>
   );
 }
