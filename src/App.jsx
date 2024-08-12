@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
-import GroupList from "./components/GroupList";
-import NotesView from "./components/NotesView";
 import AppContext from "./context/AppContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import NotePage from "./pages/NotePage";
 
 function App() {
   const [groups, setGroups] = useState(
@@ -25,18 +26,16 @@ function App() {
   }, [groups]);
 
   return (
-    <>
+    <div className={styles.container}>
       <AppContext.Provider value={{ groups, setGroups }}>
-        <div className={styles.container}>
-          <div className={styles.groups}>
-            <GroupList />
-          </div>
-          <div className={styles.notes}>
-            <NotesView />
-          </div>
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/notes/:group" element={<NotePage />} />
+          </Routes>
+        </BrowserRouter>
       </AppContext.Provider>
-    </>
+    </div>
   );
 }
 

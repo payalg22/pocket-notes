@@ -4,27 +4,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 20px;
-    position: relative;
 }
 
-.desc {
-    color: hsla(0, 0%, 16%, 1);
-    max-width: 600px;
-    font-weight: 500;
-    font-size: 1.25em;
-    text-align: center;
-}
-
-.footer {
-    color: hsla(0, 0%, 16%, 1);
-    max-width: 550px;
-    font-size: 1.25em;
-    position: absolute;
-    bottom: 0;
-    margin: 20px;
-    display: flex;
-    gap: 5px;
+.title {
+    width: 100%;
+    background-color: hsla(227, 100%, 27%, 1);
+    padding: 10px;
+    color: white;
+    position: fixed;
 }

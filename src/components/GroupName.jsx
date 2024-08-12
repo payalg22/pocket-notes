@@ -5,11 +5,11 @@ export default function GroupName({grp}) {
         <div className={styles.grpContainer}>
           <div
             className={styles.grpLogo}
-            style={{ backgroundColor: grp.theme }}
+            style={{ backgroundColor: grp?.theme }}
           >
-            {grp.logo}
+            {grp?.logo}
           </div>
-          <p className={styles.grpName}>{grp.name}</p>
+          <p className={styles.grpName}>{grp?.name}</p>
         </div>
       );
 }
