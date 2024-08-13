@@ -15,6 +15,38 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    background: hsla(216, 57%, 91%, 1);
+}
+
+.title {
+    width: 100%;
+    background-color: hsla(227, 100%, 27%, 1);
+    padding: 10px;
+    color: white;
+    position: fixed;
+    z-index: 1000;
+    height: 8%;
+}
+
+.notesView {
+    height: 67%;
+    margin-top: 7%;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+}
+
+.notesView::-webkit-scrollbar {
+    width: 10px;
+}
+
+.notesView::-webkit-scrollbar-track {
+    background-color: hsla(0, 0%, 0%, 0.63);
+    border-radius: 5.5px;
+}
+
+.notesView::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 100%, 1);
+    border-radius: 4.5px;
 }
 
 .editor {

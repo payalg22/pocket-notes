@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import GroupList from "../components/GroupList";
 import NotesView from "../components/NotesView";
+import GroupName from "../components/GroupName";
 import styles from "./note-page.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import AppContext from "../context/AppContext";
@@ -8,8 +9,7 @@ import CreateNote from "../components/CreateNote";
 
 export default function NotePage() {
   const { group } = useParams();
-  const [selectedGrp, setSelectedGrp] = useState();
-  const { groups } = useContext(AppContext);
+  const { groups, selectedGrp, setSelectedGrp } = useContext(AppContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +29,12 @@ export default function NotePage() {
         <GroupList />
       </div>
       <div className={styles.notes}>
-        <NotesView group={selectedGrp} />
+        <div className={styles.title}>
+          <GroupName grp={selectedGrp} />
+        </div>
+        <div className={styles.notesView}>
+          <NotesView group={selectedGrp} />
+        </div>
         <div className={styles.editor}>
           <CreateNote />
         </div>

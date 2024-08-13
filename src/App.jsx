@@ -9,14 +9,21 @@ function App() {
   const [groups, setGroups] = useState(
     JSON.parse(localStorage.getItem("myGroups")) || [
       {
-        logo: "MN",
-        name: "My Notes",
-        theme: "hsla(223, 100%, 50%, 1)",
-      },
+        logo: "",
+        name: "",
+        theme: "",
+      }]
+  );
+  const [selectedGrp, setSelectedGrp] = useState();
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("myNotes")) || [
       {
-        logo: "M",
-        name: "Mern",
-        theme: "hsla(262, 92%, 76%, 1)",
+        grp: "",
+        content: "",
+        timestamp: {
+          fDate: "",
+          time: "",
+        },
       },
     ]
   );
@@ -25,9 +32,22 @@ function App() {
     localStorage.setItem("myGroups", JSON.stringify(groups));
   }, [groups]);
 
+  useEffect(() => {
+    localStorage.setItem("myNotes", JSON.stringify(notes));
+  }, [notes]);
+
   return (
     <div className={styles.container}>
-      <AppContext.Provider value={{ groups, setGroups }}>
+      <AppContext.Provider
+        value={{
+          groups,
+          setGroups,
+          selectedGrp,
+          setSelectedGrp,
+          notes,
+          setNotes,
+        }}
+      >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />

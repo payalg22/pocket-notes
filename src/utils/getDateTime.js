@@ -23,7 +23,7 @@ export default function getDate(date = new Date()) {
     })
     .toString()
     .padStart(8, "0");
-  const dateFormatted = `${day} ${month} ${year}`;
+  const fDate = `${day} ${month} ${year}`;
 
-  return { dateFormatted, time };
+  return { fDate, time };
 }

@@ -6,7 +6,7 @@ import NewGroup from "./NewGroup";
 import GroupName from "./GroupName";
 
 export default function GroupList() {
-  const { groups, setGroups } = useContext(AppContext);
+  const { groups, setGroups, selectedGrp } = useContext(AppContext);
   const navigate = useNavigate();
 
   function handleNewGroup(grp) {
@@ -14,7 +14,7 @@ export default function GroupList() {
   }
 
   function handleViewGrp(grp) {
-    navigate(`/notes/${grp}`)
+    navigate(`/notes/${grp}`);
   }
 
   return (
@@ -22,18 +22,25 @@ export default function GroupList() {
       <div className={styles.heading}>
         <h1>Pocket Notes</h1>
       </div>
-      {groups.map((grp, index) => {
-        return (
-          <div
-            className={styles.grp}
-            onClick={() => {
-              handleViewGrp(grp?.name);
-            }}
-          >
-            <GroupName key={index} grp={grp} />
-          </div>
-        );
-      })}
+      <div className={styles.grpList}>
+        {groups.map((grp, index) => {
+          return (
+            <div
+              className={styles.grp}
+              onClick={() => {
+                handleViewGrp(grp?.name);
+              }}
+              style={{
+                backgroundColor:
+                  selectedGrp?.name === grp?.name && `hsla(0, 0%, 18%, 0.17)`,
+              }}
+            >
+              <GroupName key={index} grp={grp} />
+            </div>
+          );
+        })}
+      </div>
+
       <div className={styles.newGrp}>
         <NewGroup createNewGrp={handleNewGroup} />
       </div>
