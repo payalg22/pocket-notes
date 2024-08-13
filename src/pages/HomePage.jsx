@@ -1,6 +1,6 @@
 import styles from "./home-page.module.css";
 import GroupList from "../components/GroupList";
-import NotesView from "../components/HomeView";
+import HomeView from "../components/HomeView";
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
           <GroupList />
         </div>
         <div className={styles.notes}>
-          <NotesView />
+          <HomeView />
         </div>
       </div>
   );

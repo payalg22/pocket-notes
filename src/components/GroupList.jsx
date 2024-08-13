@@ -11,6 +11,7 @@ export default function GroupList() {
 
   function handleNewGroup(grp) {
     setGroups([...groups, grp]);
+    navigate(`/notes/${grp.name}`);
   }
 
   function handleViewGrp(grp) {
@@ -42,7 +43,7 @@ export default function GroupList() {
       </div>
 
       <div className={styles.newGrp}>
-        <NewGroup createNewGrp={handleNewGroup} />
+        <NewGroup createNewGrp={handleNewGroup} groupList={groups} />
       </div>
     </div>
   );

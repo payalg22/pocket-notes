@@ -2,7 +2,7 @@ import styles from "./home-view.module.css";
 import home from "../assets/home.png";
 import LockIcon from "@mui/icons-material/Lock";
 
-export default function NotesView() {
+export default function HomeView() {
   return (
     <div className={styles.container}>
       <img src={home} />
