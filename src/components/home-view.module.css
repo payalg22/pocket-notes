@@ -5,9 +5,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 20px;
-    position: relative;
 }
 
 .desc {
@@ -22,13 +30,25 @@
     color: hsla(0, 0%, 16%, 1);
     max-width: 550px;
     font-size: 1.25em;
-    position: absolute;
-    bottom: 0;
     margin: 20px;
     display: flex;
     gap: 5px;
+    align-items: center;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: hsla(0, 0%, 85%, 1);
+    border-radius: 5.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 100%, 1);
+    border-radius: 4.5px;
+}
 
 @media (max-width: 900px) {
     .desc {
@@ -37,8 +57,9 @@
     }
 
     .footer {
-        width: 80%;
+        width: fit-content;
         max-width: 250px;
+        font-size: 1em;
     }
 
     .hero {

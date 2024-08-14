@@ -18,9 +18,19 @@ export default function NewGroup({ createNewGrp, groupList }) {
     setError("");
   }, [newGrp]);
 
-  const handleThemeLogo = async (e, selectedTheme) => {
-    let grpLogo = await createLogo(newGrp?.name);
+  const handleThemeLogo = (selectedTheme) => {
+    let grpLogo = createLogo(newGrp?.name);
     setNewGrp({ ...newGrp, logo: grpLogo, theme: selectedTheme });
+  };
+
+  const handleClose = () => {
+    setIsError(false);
+    setError("");
+    setNewGrp({
+      logo: "",
+      name: "",
+      theme: "",
+    });
   };
 
   const validateGrp = () => {
@@ -47,15 +57,7 @@ export default function NewGroup({ createNewGrp, groupList }) {
       trigger={<button className={styles.newGrp}>+</button>}
       modal
       overlayStyle={{ background: "hsla(0, 0%, 18%, 0.75)" }}
-      onClose={() => {
-        setIsError(false);
-        setError("");
-        setNewGrp({
-          logo: "",
-          name: "",
-          theme: "",
-        });
-      }}
+      onClose={handleClose}
     >
       {(close) => (
         <div className={styles.popup}>
@@ -85,8 +87,8 @@ export default function NewGroup({ createNewGrp, groupList }) {
                     border:
                       newGrp?.theme == theme && "2px solid rgb(25, 166, 72)",
                   }}
-                  onClick={(e) => {
-                    handleThemeLogo(e, theme);
+                  onClick={() => {
+                    handleThemeLogo(theme);
                   }}
                 ></div>
               );

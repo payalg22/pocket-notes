@@ -9,6 +9,7 @@ export default function CreateNote() {
   const [isDisabled, setIsDisabled] = useState(true);
   const { notes, setNotes, selectedGrp } = useContext(AppContext);
 
+  //disable enter button on white spaces
   useEffect(() => {
     if (!newNote) {
       setIsDisabled(true);
@@ -35,14 +36,15 @@ export default function CreateNote() {
     }
   }
 
+  //on keyboard enter
   function handleEnter(event) {
     let data = event.target.value;
-    console.log("hi", data);
     if (event.key === "Enter" && data.trim()) {
       handleSubmit();
     }
   }
 
+  //change in textarea
   function handleChange(e) {
     let data = e.target.value;
     if (data.trim()) {

@@ -10,7 +10,9 @@ export default function NotFoundPage() {
         The page you are looking for might have been removed, had its name
         changed, or is temporarily unavailable.
       </p>
-      <Link to="/" className={styles.btn} >Go to Homepage</Link>
+      <Link to="/" className={styles.btn}>
+        Go to Homepage
+      </Link>
     </div>
   );
 }

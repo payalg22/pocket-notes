@@ -9,11 +9,13 @@ export default function GroupList() {
   const { groups, setGroups, selectedGrp } = useContext(AppContext);
   const navigate = useNavigate();
 
+  //Create new group
   function handleNewGroup(grp) {
     setGroups([...groups, grp]);
     navigate(`/notes/${grp.name}`);
   }
 
+  //View selected grp
   function handleViewGrp(grp) {
     navigate(`/notes/${grp}`);
   }
@@ -35,8 +37,9 @@ export default function GroupList() {
                 backgroundColor:
                   selectedGrp?.name === grp?.name && `hsla(0, 0%, 18%, 0.17)`,
               }}
+              key={index}
             >
-              <GroupName key={index} grp={grp} />
+              <GroupName grp={grp} />
             </div>
           );
         })}

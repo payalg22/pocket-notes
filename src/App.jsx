@@ -13,7 +13,8 @@ function App() {
         logo: "",
         name: "",
         theme: "",
-      }]
+      },
+    ]
   );
   const [selectedGrp, setSelectedGrp] = useState();
   const [notes, setNotes] = useState(
