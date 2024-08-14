@@ -83,15 +83,14 @@
 
 @media (max-width: 650px) {
     .popup {
-        height: 12em;
-        width: 22em;
-        font-size: 0.8em;
-        
+        height: 14em;
+        width: 21em;
+        font-size: 0.95em;
     }
 
     .themeSelector {
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 25px;
     }
 
     .popup > div {
@@ -103,5 +102,6 @@
         align-self: center;
         width: 60%;
         margin-top: 10px;
+        font-size: 1.1em;
     }
 }
