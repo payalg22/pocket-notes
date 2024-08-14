@@ -25,6 +25,16 @@
     color: white;
     position: fixed;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.title > button {
+    background: transparent;
+    border: none;
+    color: white;
+    display: none;
 }
 
 .notesView {
@@ -58,6 +68,10 @@
 @media (max-width: 650px) {
     .groups {
         display: none;
+    }
+
+    .title > button {
+        display: block;
     }
 }
 

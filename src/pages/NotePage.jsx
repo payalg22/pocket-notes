@@ -6,6 +6,7 @@ import styles from "./note-page.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import CreateNote from "../components/CreateNote";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 export default function NotePage() {
   const { group } = useParams();
@@ -30,6 +31,9 @@ export default function NotePage() {
       </div>
       <div className={styles.notes}>
         <div className={styles.title}>
+        <button onClick={() => {navigate(-1)}}>
+          <KeyboardBackspaceIcon />  
+        </button>
           <GroupName grp={selectedGrp} />
         </div>
         <div className={styles.notesView}>

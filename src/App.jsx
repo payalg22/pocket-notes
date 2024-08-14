@@ -4,6 +4,7 @@ import AppContext from "./context/AppContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NotePage from "./pages/NotePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const [groups, setGroups] = useState(
@@ -52,6 +53,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/notes/:group" element={<NotePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>
