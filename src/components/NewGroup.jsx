@@ -60,7 +60,7 @@ export default function NewGroup({ createNewGrp, groupList }) {
       {(close) => (
         <div className={styles.popup}>
           <div>
-            <p>Create new group</p>
+            <p className={styles.heading}>Create new group</p>
           </div>
           <div>
             <label htmlFor="grpName">Group Name</label>

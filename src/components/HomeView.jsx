@@ -5,7 +5,7 @@ import LockIcon from "@mui/icons-material/Lock";
 export default function HomeView() {
   return (
     <div className={styles.container}>
-      <img src={home} />
+      <img src={home} className={styles.hero}/>
       <h1>Pocket Notes</h1>
       <p className={styles.desc}>
         Send and receive messages without keeping your phone online. Use Pocket

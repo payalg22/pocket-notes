@@ -25,14 +25,13 @@
     color: white;
     position: fixed;
     z-index: 1000;
-    height: 8%;
 }
 
 .notesView {
     height: 67%;
-    margin-top: 7%;
+    margin-top: 70px;
     overflow-y: scroll;
-    margin-bottom: 15px;
+    margin-bottom: 150px;
 }
 
 .notesView::-webkit-scrollbar {
@@ -54,4 +53,22 @@
     width: -webkit-fill-available;
     position: fixed;
     bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .groups {
+        display: none;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 900px) {
+    .groups {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+    .groups {
+        width: 35%;
+    }
 }

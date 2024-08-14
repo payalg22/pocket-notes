@@ -28,3 +28,20 @@
     display: flex;
     gap: 5px;
 }
+
+
+@media (max-width: 900px) {
+    .desc {
+        width: 80%;
+        max-width: 80%;
+    }
+
+    .footer {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .hero {
+        width: 80%;
+    }
+}

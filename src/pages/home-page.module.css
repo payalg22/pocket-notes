@@ -13,3 +13,25 @@
     flex: 1;
     height: 100%;
 }
+
+@media (max-width: 650px) {
+    .notes {
+        display: none;
+    }
+
+    .groups {
+        width: 100%;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 850px) {
+    .groups {
+        width: 45%;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1200px) {
+    .groups {
+        width: 35%;
+    }
+}

@@ -15,6 +15,11 @@ export default function CreateNote() {
     }
   }, [newNote]);
 
+  //Clear textarea on grp change
+  useEffect(() => {
+    setNewNote("");
+  }, [selectedGrp]);
+
   function handleSubmit() {
     if (newNote.trim()) {
       let timestamp = getDateTime();
