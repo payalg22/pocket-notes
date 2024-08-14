@@ -8,13 +8,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const [groups, setGroups] = useState(
-    JSON.parse(localStorage.getItem("myGroups")) || [
-      {
-        logo: "",
-        name: "",
-        theme: "",
-      },
-    ]
+    JSON.parse(localStorage.getItem("myGroups")) || []
   );
   const [selectedGrp, setSelectedGrp] = useState();
   const [notes, setNotes] = useState(
